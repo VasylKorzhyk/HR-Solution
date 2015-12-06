@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace HRM.DAL.Entities
 {
-    public class Employee : Entity
+    public class Employee : Person
     {
-        public string FirstName { get; set; }
-        public string SecondName { get; set; }
+        public int ContractID { get; set; }
+        public string ContractType { get; set; }
+        public DateTime Hiredate { get; set; }
+        public DateTime Firedate { get; set; }
+        public Post Post { get; set; }
+        public WorkType WorkType { get; set; }
+        public DateTime Probation { get; set; }
+        public double Salary { get; set; }
     }
 }
