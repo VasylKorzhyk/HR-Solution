@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HRM.BLL.Services;
+using HRM.DAL;
+using HRM.DAL.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +15,16 @@ namespace HRM
 {
     public partial class AddPerson : Form
     {
-        public AddPerson()
+        private readonly HumanDBContext context;
+        public AddPerson(HumanDBContext context)
         {
+            this.context = context;
             InitializeComponent();
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

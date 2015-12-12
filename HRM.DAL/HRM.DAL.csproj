@@ -68,6 +68,8 @@
     <Compile Include="HumanDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EmployeeRepository.cs" />
+    <Compile Include="Repositories\PersonRepository.cs" />
+    <Compile Include="Repositories\StatusRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

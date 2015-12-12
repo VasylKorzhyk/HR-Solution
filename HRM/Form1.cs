@@ -16,24 +16,24 @@ namespace HRM
 {
     public partial class Form1 : Form
     {
+        private readonly HumanDBContext context;
+        private readonly EmployeeService employeeService;
+        private readonly 
         public Form1()
         {
+            context = new HumanDBContext();
             InitializeComponent();
             
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var context = new HumanDBContext();
-            EmployeeService employeeService = new EmployeeService(new EmployeeRepository(context));
-            employeeService.Add(new Employee() {
-                Id = Guid.NewGuid().ToString(),
-                FirstName = "First",
-                SecondName = "Second"
-            });
-            IEnumerable<Employee> All = employeeService.GetAll();
+            new AddPerson(this.context).Show();
+        }
 
-            new AddPerson().Show();
+        private void addEmployeeButton_Click(object sender, EventArgs e)
+        {
+            new AddEmployee(this.context).Show();
         }
     }
 }
