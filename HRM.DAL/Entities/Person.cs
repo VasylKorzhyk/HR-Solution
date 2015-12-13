@@ -17,7 +17,7 @@ namespace HRM.DAL.Entities
         public Army Army { get; set; }
         public string PassportID { get; set; }
         public string TaxID { get; set; }
-        public string MaritalStatus { get; set; }
+        public MaritalStatus MaritalStatus { get; set; }
         public string LivingAddress { get; set; }
         public string WorkPhone { get; set; }
         public string PersonalPhone { get; set; }
@@ -25,10 +25,10 @@ namespace HRM.DAL.Entities
         public string Disablement { get; set; }
         public string Photo { get; set; }
         public string CV { get; set; }
+        public Promotion Promotion { get; set; }
         public WorkerStatus WorkerStatus { get; set; }
         public ICollection<Family> Families { get; set; }
         public ICollection<Language> Languages { get; set; }
         public ICollection<Education> Educations { get; set; }
-
     }
 }

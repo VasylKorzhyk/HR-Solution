@@ -17,23 +17,28 @@ namespace HRM
     public partial class Form1 : Form
     {
         private readonly HumanDBContext context;
+        private readonly PersonService personService;
         private readonly EmployeeService employeeService;
-        private readonly 
+        private readonly StatusService statusService;
+
         public Form1()
         {
-            context = new HumanDBContext();
             InitializeComponent();
-            
+
+            this.context = new HumanDBContext();
+            this.personService = new PersonService(new PersonRepository(this.context));
+            this.employeeService = new EmployeeService(new EmployeeRepository(this.context));
+            this.statusService = new StatusService(new StatusRepository(this.context));
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new AddPerson(this.context).Show();
+            new AddPersonForm(this.personService).Show();
         }
 
         private void addEmployeeButton_Click(object sender, EventArgs e)
         {
-            new AddEmployee(this.context).Show();
+            new AddEmployeeForm(this.context).Show();
         }
     }
 }

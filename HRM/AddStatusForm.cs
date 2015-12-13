@@ -1,6 +1,4 @@
 ﻿using HRM.BLL.Services;
-using HRM.DAL;
-using HRM.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,18 +11,14 @@ using System.Windows.Forms;
 
 namespace HRM
 {
-    public partial class AddPerson : Form
+    public partial class AddStatusForm : Form
     {
-        private readonly HumanDBContext context;
-        public AddPerson(HumanDBContext context)
+        private readonly StatusService statusService;
+        public AddStatusForm(StatusService statusService)
         {
-            this.context = context;
             InitializeComponent();
-        }
 
-        private void addButton_Click(object sender, EventArgs e)
-        {
-
+            this.statusService = statusService;
         }
     }
 }

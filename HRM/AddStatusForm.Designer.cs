@@ -1,6 +1,6 @@
 ﻿namespace HRM
 {
-    partial class AddStatus
+    partial class AddStatusForm
     {
         /// <summary>
         /// Required designer variable.

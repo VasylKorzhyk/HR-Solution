@@ -7,8 +7,12 @@ namespace HRM.DAL
 {
     public class HumanDBContext : DbContext
     {
+        public DbSet<Person> Persons { get; set; }
         public DbSet<Employee> Employees { get; set; }
-
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<WorkType> WorkTypes { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<SalaryType> SalaryTypes { get; set; }
         public HumanDBContext():base("HumanDBContext")
         {
             

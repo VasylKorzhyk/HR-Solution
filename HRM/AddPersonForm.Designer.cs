@@ -1,6 +1,6 @@
 ﻿namespace HRM
 {
-    partial class AddPerson
+    partial class AddPersonForm
     {
         /// <summary>
         /// Required designer variable.

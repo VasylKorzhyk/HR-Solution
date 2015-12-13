@@ -9,7 +9,7 @@ namespace HRM.DAL.Repositories
     public class StatusRepository
     {
         private readonly HumanDBContext context;
-        public StatucRepository(HumanDBContext context)
+        public StatusRepository(HumanDBContext context)
         {
             this.context = context;
         }
