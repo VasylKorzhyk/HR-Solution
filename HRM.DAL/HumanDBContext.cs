@@ -13,9 +13,9 @@ namespace HRM.DAL
         public DbSet<WorkType> WorkTypes { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<SalaryType> SalaryTypes { get; set; }
+        public DbSet<StatusType> StatusTypes { get; set; }
         public HumanDBContext():base("HumanDBContext")
         {
-            
         }
 
         public override int SaveChanges()

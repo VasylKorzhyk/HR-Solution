@@ -9,6 +9,11 @@ namespace HRM.DAL.Entities
     public class Post : Entity
     {
         public string Name { get; set; }
-        Department Department { get; set; }
+        public virtual Department Department { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

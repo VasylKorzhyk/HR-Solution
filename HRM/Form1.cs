@@ -33,12 +33,33 @@ namespace HRM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new AddPersonForm(this.personService).Show();
+            new AddPersonForm(this.personService).ShowDialog();
         }
 
         private void addEmployeeButton_Click(object sender, EventArgs e)
         {
-            new AddEmployeeForm(this.context).Show();
+            new AddEmployeeForm(this.context).ShowDialog();
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            this.PersonDataGrid.Rows.Clear();
+            this.personService.GetAll().ToList()
+                .Select(p => PersonDataGrid.Rows.Add(p.Id, p.SecondName, p.FirstName, p.ThirdName)).ToList();
+
+            this.EmployeeDataGrid.Rows.Clear();
+            this.employeeService.GetAll().ToList()
+                .Select(em => EmployeeDataGrid.Rows.Add(em.Id, em.Person, em.Post.Department, em.Post, em.ContractType, em.Hiredate.ToString("dd-MM-yyyy"))).ToList();
+
+            this.StatusDataGrid.Rows.Clear();
+            this.employeeService.GetAll().ToList()
+                .Select(em => StatusDataGrid.Rows.Add(em.Id, em.Person, em.Post.Department, em.Post, em.Person.WorkerStatus)).ToList();
+
+        }
+
+        private void addStatusButton_Click(object sender, EventArgs e)
+        {
+            new AddStatusForm(this.context).ShowDialog();
         }
     }
 }

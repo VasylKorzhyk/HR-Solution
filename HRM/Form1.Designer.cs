@@ -40,7 +40,7 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.searchValue = new System.Windows.Forms.TextBox();
             this.groupBoxPerson = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.PersonDataGrid = new System.Windows.Forms.DataGridView();
             this.dataBaseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnPersonThirdname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnPersonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,12 +58,7 @@
             this.searchEmployeeButton = new System.Windows.Forms.Button();
             this.searchEmployeeValue = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.pibColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departmentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contractTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hiredataColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeDataGrid = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.fireEmployeeButton = new System.Windows.Forms.Button();
             this.freePositionsButton = new System.Windows.Forms.Button();
@@ -77,7 +72,7 @@
             this.searchStatusButton = new System.Windows.Forms.Button();
             this.searchStatusValue = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.StatusDataGrid = new System.Windows.Forms.DataGridView();
             this.databaseIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,21 +105,27 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pibColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.postColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contractTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hiredataColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBoxSearch.SuspendLayout();
             this.groupBoxPerson.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PersonDataGrid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmployeeDataGrid)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StatusDataGrid)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox9.SuspendLayout();
@@ -243,7 +244,7 @@
             // 
             // groupBoxPerson
             // 
-            this.groupBoxPerson.Controls.Add(this.dataGridView1);
+            this.groupBoxPerson.Controls.Add(this.PersonDataGrid);
             this.groupBoxPerson.Location = new System.Drawing.Point(17, 22);
             this.groupBoxPerson.Name = "groupBoxPerson";
             this.groupBoxPerson.Size = new System.Drawing.Size(619, 358);
@@ -251,18 +252,18 @@
             this.groupBoxPerson.TabStop = false;
             this.groupBoxPerson.Text = "Таблиця";
             // 
-            // dataGridView1
+            // PersonDataGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PersonDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PersonDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataBaseID,
             this.columnPersonThirdname,
             this.columnPersonName,
             this.columnPersonSecondname});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 20);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(606, 332);
-            this.dataGridView1.TabIndex = 0;
+            this.PersonDataGrid.Location = new System.Drawing.Point(7, 20);
+            this.PersonDataGrid.Name = "PersonDataGrid";
+            this.PersonDataGrid.Size = new System.Drawing.Size(606, 332);
+            this.PersonDataGrid.TabIndex = 0;
             // 
             // dataBaseID
             // 
@@ -408,7 +409,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView2);
+            this.groupBox3.Controls.Add(this.EmployeeDataGrid);
             this.groupBox3.Location = new System.Drawing.Point(17, 22);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(619, 358);
@@ -416,47 +417,20 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Таблиця";
             // 
-            // dataGridView2
+            // EmployeeDataGrid
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EmployeeDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.EmployeeDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.pibColumn,
             this.departmentColumn,
             this.postColumn,
             this.contractTypeColumn,
             this.hiredataColumn});
-            this.dataGridView2.Location = new System.Drawing.Point(7, 20);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(606, 332);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // pibColumn
-            // 
-            this.pibColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.pibColumn.HeaderText = "П. І. Б.";
-            this.pibColumn.Name = "pibColumn";
-            // 
-            // departmentColumn
-            // 
-            this.departmentColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.departmentColumn.HeaderText = "Відділення";
-            this.departmentColumn.Name = "departmentColumn";
-            // 
-            // postColumn
-            // 
-            this.postColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.postColumn.HeaderText = "Посада";
-            this.postColumn.Name = "postColumn";
-            // 
-            // contractTypeColumn
-            // 
-            this.contractTypeColumn.HeaderText = "Вид договору";
-            this.contractTypeColumn.Name = "contractTypeColumn";
-            // 
-            // hiredataColumn
-            // 
-            this.hiredataColumn.HeaderText = "Дата створення договору";
-            this.hiredataColumn.Name = "hiredataColumn";
+            this.EmployeeDataGrid.Location = new System.Drawing.Point(7, 20);
+            this.EmployeeDataGrid.Name = "EmployeeDataGrid";
+            this.EmployeeDataGrid.Size = new System.Drawing.Size(606, 332);
+            this.EmployeeDataGrid.TabIndex = 0;
             // 
             // groupBox4
             // 
@@ -575,7 +549,7 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.dataGridView3);
+            this.groupBox6.Controls.Add(this.StatusDataGrid);
             this.groupBox6.Location = new System.Drawing.Point(17, 22);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(619, 358);
@@ -583,19 +557,19 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Таблиця";
             // 
-            // dataGridView3
+            // StatusDataGrid
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StatusDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StatusDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.databaseIDColumn,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn5});
-            this.dataGridView3.Location = new System.Drawing.Point(7, 20);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(606, 332);
-            this.dataGridView3.TabIndex = 0;
+            this.StatusDataGrid.Location = new System.Drawing.Point(7, 20);
+            this.StatusDataGrid.Name = "StatusDataGrid";
+            this.StatusDataGrid.Size = new System.Drawing.Size(606, 332);
+            this.StatusDataGrid.TabIndex = 0;
             // 
             // databaseIDColumn
             // 
@@ -643,6 +617,7 @@
             this.addStatusButton.TabIndex = 2;
             this.addStatusButton.Text = "Додати статус";
             this.addStatusButton.UseVisualStyleBackColor = true;
+            this.addStatusButton.Click += new System.EventHandler(this.addStatusButton_Click);
             // 
             // tabPage4
             // 
@@ -878,6 +853,45 @@
             this.button12.Text = "Звіт про наявність вакансій ";
             this.button12.UseVisualStyleBackColor = true;
             // 
+            // Id
+            // 
+            this.Id.FillWeight = 50F;
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.Width = 50;
+            // 
+            // pibColumn
+            // 
+            this.pibColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pibColumn.FillWeight = 140F;
+            this.pibColumn.HeaderText = "П. І. Б.";
+            this.pibColumn.Name = "pibColumn";
+            // 
+            // departmentColumn
+            // 
+            this.departmentColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.departmentColumn.FillWeight = 70F;
+            this.departmentColumn.HeaderText = "Відділення";
+            this.departmentColumn.Name = "departmentColumn";
+            // 
+            // postColumn
+            // 
+            this.postColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.postColumn.FillWeight = 70F;
+            this.postColumn.HeaderText = "Посада";
+            this.postColumn.Name = "postColumn";
+            // 
+            // contractTypeColumn
+            // 
+            this.contractTypeColumn.FillWeight = 70F;
+            this.contractTypeColumn.HeaderText = "Вид договору";
+            this.contractTypeColumn.Name = "contractTypeColumn";
+            // 
+            // hiredataColumn
+            // 
+            this.hiredataColumn.HeaderText = "Дата створення договору";
+            this.hiredataColumn.Name = "hiredataColumn";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -886,24 +900,25 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "HR-Solution";
+            this.Activated += new System.EventHandler(this.Form1_Activated);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBoxSearch.ResumeLayout(false);
             this.groupBoxSearch.PerformLayout();
             this.groupBoxPerson.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PersonDataGrid)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmployeeDataGrid)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StatusDataGrid)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
@@ -922,7 +937,7 @@
         private System.Windows.Forms.Button addPersonButton;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView PersonDataGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataBaseID;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnPersonThirdname;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnPersonName;
@@ -946,12 +961,7 @@
         private System.Windows.Forms.Button searchEmployeeButton;
         private System.Windows.Forms.TextBox searchEmployeeValue;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pibColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn departmentColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn postColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contractTypeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hiredataColumn;
+        private System.Windows.Forms.DataGridView EmployeeDataGrid;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button addEmployeeButton;
         private System.Windows.Forms.Button fireEmployeeButton;
@@ -963,7 +973,7 @@
         private System.Windows.Forms.Button searchStatusButton;
         private System.Windows.Forms.TextBox searchStatusValue;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView StatusDataGrid;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button addStatusButton;
         private System.Windows.Forms.MonthCalendar Calendar;
@@ -997,6 +1007,12 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pibColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn departmentColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn postColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contractTypeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hiredataColumn;
     }
 }
 

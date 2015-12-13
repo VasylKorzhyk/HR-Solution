@@ -32,7 +32,8 @@ namespace HRM
 
         private void addEmployeeButton_Click(object sender, EventArgs e)
         {
-
+            employeeService.Add(ReadDataFromForm());
+            this.Close();
         }
 
         private Employee ReadDataFromForm()
@@ -54,9 +55,9 @@ namespace HRM
 
         private void LoadDataOnForm()
         {
-            this.personBox.DataSource = this.personService.GetAll().Select( x => x.SecondName + " " + x.FirstName + " " + x.ThirdName ).ToList();
-            this.salaryTypeBox.DataSource = this.context.SalaryTypes;
-            this.postBox.DataSource = this.context.Posts;
+            this.personBox.DataSource = this.personService.GetAll().ToList();
+            this.salaryTypeBox.DataSource = this.context.SalaryTypes.ToList();
+            this.postBox.DataSource =  this.context.Posts.ToList();
         }
     }
 }

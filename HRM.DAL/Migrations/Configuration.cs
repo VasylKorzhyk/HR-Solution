@@ -17,23 +17,49 @@ namespace HRM.DAL.Migrations
         protected override void Seed(HRM.DAL.HumanDBContext context)
         {
             context.Posts.AddOrUpdate(
-                    new Post() {Id = Guid.NewGuid().ToString(), Name = "Менеджер"},
-                    new Post() {Id = Guid.NewGuid().ToString(), Name = "Інженер"}
-                );
+                p => p.Name,
+                   new Post() { Id = Guid.NewGuid().ToString(), Name = "Менеджер" },
+                   new Post() { Id = Guid.NewGuid().ToString(), Name = "Інженер" }
+               );
             context.SalaryTypes.AddOrUpdate(
-                    new SalaryType() { Id = Guid.NewGuid().ToString(), Name = "Погодинна" },
-                    new SalaryType() { Id = Guid.NewGuid().ToString(), Name = "Помісячна" }
+                st => st.Name,
+                    new SalaryType() { Id = Guid.NewGuid().ToString(), Name = "Погодинний" },
+                    new SalaryType() { Id = Guid.NewGuid().ToString(), Name = "Помісячний" }
                 );
 
             context.Persons.AddOrUpdate(
-               new Person() 
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    FirstName = "Микола",
-                    SecondName = "Петров",
-                    ThirdName = "Вікторович",
-                    Sex = "чоловіча"
-                }
+               p => new { p.FirstName, p.SecondName, p.ThirdName },
+               new Person
+               {
+                   Id = Guid.NewGuid().ToString(),
+                   FirstName = "Микола",
+                   SecondName = "Петров",
+                   ThirdName = "Вікторович",
+                   Sex = "чоловіча"
+               },
+               new Person
+               {
+                   Id = Guid.NewGuid().ToString(),
+                   FirstName = "Віктор",
+                   SecondName = "Сидорчук",
+                   ThirdName = "Вікторович",
+                   Sex = "чоловіча"
+               },
+               new Person
+               {
+                   Id = Guid.NewGuid().ToString(),
+                   FirstName = "Максим",
+                   SecondName = "Бойко",
+                   ThirdName = "Григорович",
+                   Sex = "чоловіча"
+               }
+                );
+
+            context.StatusTypes.AddOrUpdate(
+                st => st.Name,
+                new StatusType { Id = Guid.NewGuid().ToString(), Name = "Хворий" },
+                new StatusType { Id = Guid.NewGuid().ToString(), Name = "У відпустці" },
+                new StatusType { Id = Guid.NewGuid().ToString(), Name = "У відпустці за власний рахунок" }
                 );
             //  This method will be called after migrating to the latest version.
 

@@ -1,4 +1,5 @@
-﻿using HRM.DAL.Repositories;
+﻿using HRM.DAL.Entities;
+using HRM.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,11 @@ namespace HRM.BLL.Services
         public StatusService(StatusRepository statusRepository)
         {
             this.statusRepository = statusRepository;
+        }
+
+        public IEnumerable<StatusType> GetAll()
+        {
+            return this.statusRepository.GetAll();
         }
     }
 }

@@ -30,5 +30,10 @@ namespace HRM.DAL.Entities
         public ICollection<Family> Families { get; set; }
         public ICollection<Language> Languages { get; set; }
         public ICollection<Education> Educations { get; set; }
+
+        public override string ToString()
+        {
+            return SecondName + " " + FirstName + " " + ThirdName;
+        }
     }
 }

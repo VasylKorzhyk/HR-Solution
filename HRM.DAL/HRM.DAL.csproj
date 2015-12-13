@@ -70,9 +70,9 @@
     <Compile Include="Entities\WorkerStatus.cs" />
     <Compile Include="Entities\WorkType.cs" />
     <Compile Include="HumanDBContext.cs" />
-    <Compile Include="Migrations\201512122248369_InitialCreate.cs" />
-    <Compile Include="Migrations\201512122248369_InitialCreate.Designer.cs">
-      <DependentUpon>201512122248369_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201512131202349_Initial.cs" />
+    <Compile Include="Migrations\201512131202349_Initial.Designer.cs">
+      <DependentUpon>201512131202349_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,15 +81,15 @@
     <Compile Include="Repositories\StatusRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512122248369_InitialCreate.resx">
-      <DependentUpon>201512122248369_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512131202349_Initial.resx">
+      <DependentUpon>201512131202349_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

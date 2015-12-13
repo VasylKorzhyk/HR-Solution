@@ -11,6 +11,11 @@ namespace HRM.DAL.Entities
     public class SalaryType : Entity
     {
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
     
 }

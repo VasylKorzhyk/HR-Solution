@@ -21,6 +21,11 @@ namespace HRM.BLL.Services
             this.employeeRepository.Add(employee);
         }
 
+        public void Update(Employee employee)
+        {
+            this.employeeRepository.Update(employee);
+        }
+
         public Employee Get(string id)
         {
             return this.employeeRepository.Get(id);

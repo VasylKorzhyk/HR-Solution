@@ -114,6 +114,7 @@
             this.addStatusButton.TabIndex = 16;
             this.addStatusButton.Text = "Додати";
             this.addStatusButton.UseVisualStyleBackColor = true;
+            this.addStatusButton.Click += new System.EventHandler(this.addStatusButton_Click);
             // 
             // cancelButton
             // 
@@ -124,7 +125,7 @@
             this.cancelButton.Text = "Відміна";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
-            // AddStatus
+            // AddStatusForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -139,7 +140,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.personBox);
-            this.Name = "AddStatus";
+            this.Name = "AddStatusForm";
             this.Text = "Додавання статусу";
             this.ResumeLayout(false);
             this.PerformLayout();
