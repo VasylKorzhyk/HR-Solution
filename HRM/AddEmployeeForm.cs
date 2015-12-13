@@ -59,5 +59,10 @@ namespace HRM
             this.salaryTypeBox.DataSource = this.context.SalaryTypes.ToList();
             this.postBox.DataSource =  this.context.Posts.ToList();
         }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

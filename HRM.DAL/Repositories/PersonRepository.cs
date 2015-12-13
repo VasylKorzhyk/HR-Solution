@@ -15,6 +15,12 @@ namespace HRM.DAL.Repositories
             this.context = context;
         }
 
+        public void Add(Person person)
+        {
+            this.context.Persons.Add(person);
+            this.context.SaveChanges();
+        }
+
         public IEnumerable<Person> GetAll()
         {
             return context.Persons;

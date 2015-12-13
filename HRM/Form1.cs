@@ -33,12 +33,17 @@ namespace HRM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            new AddPersonForm(this.personService).ShowDialog();
+            new AddPersonForm(this.context).ShowDialog();
         }
 
         private void addEmployeeButton_Click(object sender, EventArgs e)
         {
             new AddEmployeeForm(this.context).ShowDialog();
+        }
+
+        private void addStatusButton_Click(object sender, EventArgs e)
+        {
+            new AddStatusForm(this.context).ShowDialog();
         }
 
         private void Form1_Activated(object sender, EventArgs e)
@@ -55,11 +60,6 @@ namespace HRM
             this.employeeService.GetAll().ToList()
                 .Select(em => StatusDataGrid.Rows.Add(em.Id, em.Person, em.Post.Department, em.Post, em.Person.WorkerStatus)).ToList();
 
-        }
-
-        private void addStatusButton_Click(object sender, EventArgs e)
-        {
-            new AddStatusForm(this.context).ShowDialog();
         }
     }
 }

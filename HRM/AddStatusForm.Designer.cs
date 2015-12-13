@@ -124,6 +124,7 @@
             this.cancelButton.TabIndex = 17;
             this.cancelButton.Text = "Відміна";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // AddStatusForm
             // 

@@ -321,6 +321,7 @@
             this.cancelButton.TabIndex = 11;
             this.cancelButton.Text = "Відміна";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // groupBox4
             // 
@@ -417,7 +418,7 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Поточний стан:";
             // 
-            // AddEmployee
+            // AddEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -432,7 +433,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.personBox);
             this.Controls.Add(this.groupBox1);
-            this.Name = "AddEmployee";
+            this.Name = "AddEmployeeForm";
             this.Text = "Призначення нового працівника";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -61,6 +61,22 @@ namespace HRM.DAL.Migrations
                 new StatusType { Id = Guid.NewGuid().ToString(), Name = "У відпустці" },
                 new StatusType { Id = Guid.NewGuid().ToString(), Name = "У відпустці за власний рахунок" }
                 );
+
+            context.Languages.AddOrUpdate(
+                l => l.Name,
+                new LanguageType { Id = Guid.NewGuid().ToString(), Name = "English" },
+                new LanguageType { Id = Guid.NewGuid().ToString(), Name = "German" }
+                );
+
+            context.KnowledgeTypes.AddOrUpdate(
+                k => k.Name,
+                new KnowledgeLevelType { Id = Guid.NewGuid().ToString(), Name = "Beginner" },
+                new KnowledgeLevelType { Id = Guid.NewGuid().ToString(), Name = "Pre-Intermediate" },
+                new KnowledgeLevelType { Id = Guid.NewGuid().ToString(), Name = "Intermediate" },
+                new KnowledgeLevelType { Id = Guid.NewGuid().ToString(), Name = "Upper-Intermediate" },
+                new KnowledgeLevelType { Id = Guid.NewGuid().ToString(), Name = "Advanced" },
+                new KnowledgeLevelType { Id = Guid.NewGuid().ToString(), Name = "Proficiency" }
+                );
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

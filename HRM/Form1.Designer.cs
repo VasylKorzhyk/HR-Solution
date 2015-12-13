@@ -41,10 +41,6 @@
             this.searchValue = new System.Windows.Forms.TextBox();
             this.groupBoxPerson = new System.Windows.Forms.GroupBox();
             this.PersonDataGrid = new System.Windows.Forms.DataGridView();
-            this.dataBaseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnPersonThirdname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnPersonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnPersonSecondname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.addPersonButton = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -73,11 +69,6 @@
             this.searchStatusValue = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.StatusDataGrid = new System.Windows.Forms.DataGridView();
-            this.databaseIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.addStatusButton = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -111,6 +102,15 @@
             this.postColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contractTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hiredataColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.databaseIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataBaseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnPersonThirdname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnPersonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnPersonSecondname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBoxSearch.SuspendLayout();
@@ -264,30 +264,6 @@
             this.PersonDataGrid.Name = "PersonDataGrid";
             this.PersonDataGrid.Size = new System.Drawing.Size(606, 332);
             this.PersonDataGrid.TabIndex = 0;
-            // 
-            // dataBaseID
-            // 
-            this.dataBaseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataBaseID.HeaderText = "ID";
-            this.dataBaseID.Name = "dataBaseID";
-            // 
-            // columnPersonThirdname
-            // 
-            this.columnPersonThirdname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnPersonThirdname.HeaderText = "Прізвище";
-            this.columnPersonThirdname.Name = "columnPersonThirdname";
-            // 
-            // columnPersonName
-            // 
-            this.columnPersonName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnPersonName.HeaderText = "Ім\'я";
-            this.columnPersonName.Name = "columnPersonName";
-            // 
-            // columnPersonSecondname
-            // 
-            this.columnPersonSecondname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnPersonSecondname.HeaderText = "По-батькові";
-            this.columnPersonSecondname.Name = "columnPersonSecondname";
             // 
             // groupBox1
             // 
@@ -570,34 +546,6 @@
             this.StatusDataGrid.Name = "StatusDataGrid";
             this.StatusDataGrid.Size = new System.Drawing.Size(606, 332);
             this.StatusDataGrid.TabIndex = 0;
-            // 
-            // databaseIDColumn
-            // 
-            this.databaseIDColumn.HeaderText = "ID";
-            this.databaseIDColumn.Name = "databaseIDColumn";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.HeaderText = "П. І. Б.";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Відділення";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Посада";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Статус";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // groupBox7
             // 
@@ -892,6 +840,65 @@
             this.hiredataColumn.HeaderText = "Дата створення договору";
             this.hiredataColumn.Name = "hiredataColumn";
             // 
+            // databaseIDColumn
+            // 
+            this.databaseIDColumn.FillWeight = 50F;
+            this.databaseIDColumn.HeaderText = "ID";
+            this.databaseIDColumn.Name = "databaseIDColumn";
+            this.databaseIDColumn.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.FillWeight = 140F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "П. І. Б.";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Відділення";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Посада";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Статус";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataBaseID
+            // 
+            this.dataBaseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataBaseID.FillWeight = 50F;
+            this.dataBaseID.HeaderText = "ID";
+            this.dataBaseID.Name = "dataBaseID";
+            // 
+            // columnPersonThirdname
+            // 
+            this.columnPersonThirdname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnPersonThirdname.FillWeight = 77.397F;
+            this.columnPersonThirdname.HeaderText = "Прізвище";
+            this.columnPersonThirdname.Name = "columnPersonThirdname";
+            // 
+            // columnPersonName
+            // 
+            this.columnPersonName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnPersonName.FillWeight = 77.397F;
+            this.columnPersonName.HeaderText = "Ім\'я";
+            this.columnPersonName.Name = "columnPersonName";
+            // 
+            // columnPersonSecondname
+            // 
+            this.columnPersonSecondname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnPersonSecondname.FillWeight = 77.397F;
+            this.columnPersonSecondname.HeaderText = "По-батькові";
+            this.columnPersonSecondname.Name = "columnPersonSecondname";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -938,10 +945,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView PersonDataGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataBaseID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnPersonThirdname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnPersonName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnPersonSecondname;
         private System.Windows.Forms.GroupBox groupBoxSearch;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox personRequestList;
@@ -977,11 +980,6 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button addStatusButton;
         private System.Windows.Forms.MonthCalendar Calendar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn databaseIDColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.GroupBox groupBox8;
@@ -1013,6 +1011,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn postColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contractTypeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hiredataColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataBaseID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnPersonThirdname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnPersonName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnPersonSecondname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn databaseIDColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
 

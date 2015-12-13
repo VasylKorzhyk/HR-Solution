@@ -14,6 +14,8 @@ namespace HRM.DAL
         public DbSet<Department> Departments { get; set; }
         public DbSet<SalaryType> SalaryTypes { get; set; }
         public DbSet<StatusType> StatusTypes { get; set; }
+        public DbSet<LanguageType> Languages { get; set; }
+        public DbSet<KnowledgeLevelType> KnowledgeTypes {get; set;}
         public HumanDBContext():base("HumanDBContext")
         {
         }

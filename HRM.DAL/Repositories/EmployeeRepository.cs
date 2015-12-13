@@ -30,7 +30,6 @@ namespace HRM.DAL.Repositories
 
         public void Update(Employee employee)
         {
-            this.context.Employees.Attach(employee);
             this.context.Entry(employee).State = EntityState.Modified;
             this.context.SaveChanges();
         }

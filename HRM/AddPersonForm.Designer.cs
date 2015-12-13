@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.FirstName = new System.Windows.Forms.TextBox();
-            this.MiddleName = new System.Windows.Forms.TextBox();
-            this.LastName = new System.Windows.Forms.TextBox();
+            this.secondName = new System.Windows.Forms.TextBox();
+            this.firstName = new System.Windows.Forms.TextBox();
+            this.thirdName = new System.Windows.Forms.TextBox();
             this.Name_lb = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cvLabel = new System.Windows.Forms.Label();
+            this.workPhone = new System.Windows.Forms.MaskedTextBox();
+            this.phone = new System.Windows.Forms.MaskedTextBox();
+            this.sexBox = new System.Windows.Forms.ComboBox();
+            this.birthDayPicker = new System.Windows.Forms.DateTimePicker();
             this.cvButton = new System.Windows.Forms.Button();
             this.photoBrowse = new System.Windows.Forms.Button();
             this.photoBox = new System.Windows.Forms.PictureBox();
@@ -46,18 +50,15 @@
             this.l4 = new System.Windows.Forms.Label();
             this.l3 = new System.Windows.Forms.Label();
             this.l1 = new System.Windows.Forms.Label();
-            this.Sex = new System.Windows.Forms.TextBox();
-            this.Location = new System.Windows.Forms.TextBox();
-            this.Certificate = new System.Windows.Forms.TextBox();
-            this.IDCod = new System.Windows.Forms.TextBox();
-            this.LiveLoc = new System.Windows.Forms.TextBox();
-            this.Phone = new System.Windows.Forms.TextBox();
-            this.WorkPhone = new System.Windows.Forms.TextBox();
+            this.registrationLocation = new System.Windows.Forms.TextBox();
+            this.passportID = new System.Windows.Forms.TextBox();
+            this.taxID = new System.Windows.Forms.TextBox();
+            this.livingLocation = new System.Windows.Forms.TextBox();
             this.tabPrivate = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridLanguage = new System.Windows.Forms.DataGridView();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.languageDataGrid = new System.Windows.Forms.DataGridView();
+            this.Column4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridFamily = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,33 +90,33 @@
             this.tabGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.photoBox)).BeginInit();
             this.tabPrivate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridLanguage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.languageDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFamily)).BeginInit();
             this.tabWork.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEducation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridWork)).BeginInit();
             this.SuspendLayout();
             // 
-            // FirstName
+            // secondName
             // 
-            this.FirstName.Location = new System.Drawing.Point(103, 16);
-            this.FirstName.Name = "FirstName";
-            this.FirstName.Size = new System.Drawing.Size(100, 20);
-            this.FirstName.TabIndex = 0;
+            this.secondName.Location = new System.Drawing.Point(103, 16);
+            this.secondName.Name = "secondName";
+            this.secondName.Size = new System.Drawing.Size(100, 20);
+            this.secondName.TabIndex = 0;
             // 
-            // MiddleName
+            // firstName
             // 
-            this.MiddleName.Location = new System.Drawing.Point(252, 16);
-            this.MiddleName.Name = "MiddleName";
-            this.MiddleName.Size = new System.Drawing.Size(100, 20);
-            this.MiddleName.TabIndex = 1;
+            this.firstName.Location = new System.Drawing.Point(252, 16);
+            this.firstName.Name = "firstName";
+            this.firstName.Size = new System.Drawing.Size(100, 20);
+            this.firstName.TabIndex = 1;
             // 
-            // LastName
+            // thirdName
             // 
-            this.LastName.Location = new System.Drawing.Point(394, 16);
-            this.LastName.Name = "LastName";
-            this.LastName.Size = new System.Drawing.Size(100, 20);
-            this.LastName.TabIndex = 2;
+            this.thirdName.Location = new System.Drawing.Point(394, 16);
+            this.thirdName.Name = "thirdName";
+            this.thirdName.Size = new System.Drawing.Size(100, 20);
+            this.thirdName.TabIndex = 2;
             // 
             // Name_lb
             // 
@@ -139,7 +140,11 @@
             // 
             // tabGeneral
             // 
-            this.tabGeneral.Controls.Add(this.dateTimePicker1);
+            this.tabGeneral.Controls.Add(this.cvLabel);
+            this.tabGeneral.Controls.Add(this.workPhone);
+            this.tabGeneral.Controls.Add(this.phone);
+            this.tabGeneral.Controls.Add(this.sexBox);
+            this.tabGeneral.Controls.Add(this.birthDayPicker);
             this.tabGeneral.Controls.Add(this.cvButton);
             this.tabGeneral.Controls.Add(this.photoBrowse);
             this.tabGeneral.Controls.Add(this.photoBox);
@@ -151,13 +156,10 @@
             this.tabGeneral.Controls.Add(this.l4);
             this.tabGeneral.Controls.Add(this.l3);
             this.tabGeneral.Controls.Add(this.l1);
-            this.tabGeneral.Controls.Add(this.Sex);
-            this.tabGeneral.Controls.Add(this.Location);
-            this.tabGeneral.Controls.Add(this.Certificate);
-            this.tabGeneral.Controls.Add(this.IDCod);
-            this.tabGeneral.Controls.Add(this.LiveLoc);
-            this.tabGeneral.Controls.Add(this.Phone);
-            this.tabGeneral.Controls.Add(this.WorkPhone);
+            this.tabGeneral.Controls.Add(this.registrationLocation);
+            this.tabGeneral.Controls.Add(this.passportID);
+            this.tabGeneral.Controls.Add(this.taxID);
+            this.tabGeneral.Controls.Add(this.livingLocation);
             this.tabGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.Padding = new System.Windows.Forms.Padding(3);
@@ -166,21 +168,60 @@
             this.tabGeneral.Text = "Загальні";
             this.tabGeneral.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // cvLabel
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(129, 50);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(127, 20);
-            this.dateTimePicker1.TabIndex = 24;
+            this.cvLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cvLabel.Location = new System.Drawing.Point(455, 252);
+            this.cvLabel.Name = "cvLabel";
+            this.cvLabel.Size = new System.Drawing.Size(128, 23);
+            this.cvLabel.TabIndex = 28;
+            this.cvLabel.Text = "Не знайдено...";
+            this.cvLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // workPhone
+            // 
+            this.workPhone.Location = new System.Drawing.Point(319, 255);
+            this.workPhone.Mask = "(999) 000-0000";
+            this.workPhone.Name = "workPhone";
+            this.workPhone.Size = new System.Drawing.Size(88, 20);
+            this.workPhone.TabIndex = 27;
+            // 
+            // phone
+            // 
+            this.phone.Location = new System.Drawing.Point(132, 255);
+            this.phone.Mask = "(999) 000-0000";
+            this.phone.Name = "phone";
+            this.phone.Size = new System.Drawing.Size(88, 20);
+            this.phone.TabIndex = 26;
+            // 
+            // sexBox
+            // 
+            this.sexBox.FormattingEnabled = true;
+            this.sexBox.Items.AddRange(new object[] {
+            "чоловіча",
+            "жіноча"});
+            this.sexBox.Location = new System.Drawing.Point(307, 50);
+            this.sexBox.Name = "sexBox";
+            this.sexBox.Size = new System.Drawing.Size(100, 21);
+            this.sexBox.TabIndex = 25;
+            this.sexBox.Text = "чоловіча";
+            // 
+            // birthDayPicker
+            // 
+            this.birthDayPicker.Location = new System.Drawing.Point(129, 50);
+            this.birthDayPicker.Name = "birthDayPicker";
+            this.birthDayPicker.Size = new System.Drawing.Size(127, 20);
+            this.birthDayPicker.TabIndex = 24;
             // 
             // cvButton
             // 
-            this.cvButton.Location = new System.Drawing.Point(455, 267);
+            this.cvButton.Location = new System.Drawing.Point(455, 282);
             this.cvButton.Name = "cvButton";
             this.cvButton.Size = new System.Drawing.Size(128, 23);
             this.cvButton.TabIndex = 23;
             this.cvButton.Text = "Резюме";
             this.cvButton.UseVisualStyleBackColor = true;
+            this.cvButton.Click += new System.EventHandler(this.cvButton_Click);
             // 
             // photoBrowse
             // 
@@ -188,8 +229,9 @@
             this.photoBrowse.Name = "photoBrowse";
             this.photoBrowse.Size = new System.Drawing.Size(128, 23);
             this.photoBrowse.TabIndex = 22;
-            this.photoBrowse.Text = "Змінити фото";
+            this.photoBrowse.Text = " Додати фото";
             this.photoBrowse.UseVisualStyleBackColor = true;
+            this.photoBrowse.Click += new System.EventHandler(this.photoBrowse_Click);
             // 
             // photoBox
             // 
@@ -211,25 +253,25 @@
             // l8
             // 
             this.l8.AutoSize = true;
-            this.l8.Location = new System.Drawing.Point(3, 314);
+            this.l8.Location = new System.Drawing.Point(251, 260);
             this.l8.Name = "l8";
-            this.l8.Size = new System.Drawing.Size(112, 13);
+            this.l8.Size = new System.Drawing.Size(55, 13);
             this.l8.TabIndex = 19;
-            this.l8.Text = "Службовий телефон:";
+            this.l8.Text = "Роб. тел.:";
             // 
             // l7
             // 
             this.l7.AutoSize = true;
-            this.l7.Location = new System.Drawing.Point(3, 270);
+            this.l7.Location = new System.Drawing.Point(7, 260);
             this.l7.Name = "l7";
-            this.l7.Size = new System.Drawing.Size(55, 13);
+            this.l7.Size = new System.Drawing.Size(59, 13);
             this.l7.TabIndex = 18;
-            this.l7.Text = "Телефон:";
+            this.l7.Text = "Дом. тел.:";
             // 
             // l6
             // 
             this.l6.AutoSize = true;
-            this.l6.Location = new System.Drawing.Point(5, 236);
+            this.l6.Location = new System.Drawing.Point(5, 224);
             this.l6.Name = "l6";
             this.l6.Size = new System.Drawing.Size(112, 13);
             this.l6.TabIndex = 17;
@@ -249,18 +291,18 @@
             this.l4.AutoSize = true;
             this.l4.Location = new System.Drawing.Point(5, 141);
             this.l4.Name = "l4";
-            this.l4.Size = new System.Drawing.Size(73, 13);
+            this.l4.Size = new System.Drawing.Size(84, 13);
             this.l4.TabIndex = 15;
-            this.l4.Text = "Посвідчення:";
+            this.l4.Text = "Паспортні дані:";
             // 
             // l3
             // 
             this.l3.AutoSize = true;
             this.l3.Location = new System.Drawing.Point(5, 100);
             this.l3.Name = "l3";
-            this.l3.Size = new System.Drawing.Size(104, 13);
+            this.l3.Size = new System.Drawing.Size(87, 13);
             this.l3.TabIndex = 14;
-            this.l3.Text = "Місце народження:";
+            this.l3.Text = "Місце приписки";
             // 
             // l1
             // 
@@ -271,59 +313,38 @@
             this.l1.TabIndex = 13;
             this.l1.Text = "Дата народження:";
             // 
-            // Sex
+            // registrationLocation
             // 
-            this.Sex.Location = new System.Drawing.Point(307, 51);
-            this.Sex.Name = "Sex";
-            this.Sex.Size = new System.Drawing.Size(100, 20);
-            this.Sex.TabIndex = 12;
+            this.registrationLocation.Location = new System.Drawing.Point(129, 93);
+            this.registrationLocation.Name = "registrationLocation";
+            this.registrationLocation.Size = new System.Drawing.Size(278, 20);
+            this.registrationLocation.TabIndex = 6;
             // 
-            // Location
+            // passportID
             // 
-            this.Location.Location = new System.Drawing.Point(129, 93);
-            this.Location.Name = "Location";
-            this.Location.Size = new System.Drawing.Size(278, 20);
-            this.Location.TabIndex = 6;
+            this.passportID.Location = new System.Drawing.Point(129, 134);
+            this.passportID.Name = "passportID";
+            this.passportID.Size = new System.Drawing.Size(278, 20);
+            this.passportID.TabIndex = 7;
             // 
-            // Certificate
+            // taxID
             // 
-            this.Certificate.Location = new System.Drawing.Point(129, 134);
-            this.Certificate.Name = "Certificate";
-            this.Certificate.Size = new System.Drawing.Size(278, 20);
-            this.Certificate.TabIndex = 7;
+            this.taxID.Location = new System.Drawing.Point(129, 175);
+            this.taxID.Name = "taxID";
+            this.taxID.Size = new System.Drawing.Size(278, 20);
+            this.taxID.TabIndex = 8;
             // 
-            // IDCod
+            // livingLocation
             // 
-            this.IDCod.Location = new System.Drawing.Point(129, 175);
-            this.IDCod.Name = "IDCod";
-            this.IDCod.Size = new System.Drawing.Size(278, 20);
-            this.IDCod.TabIndex = 8;
-            // 
-            // LiveLoc
-            // 
-            this.LiveLoc.Location = new System.Drawing.Point(132, 229);
-            this.LiveLoc.Name = "LiveLoc";
-            this.LiveLoc.Size = new System.Drawing.Size(275, 20);
-            this.LiveLoc.TabIndex = 9;
-            // 
-            // Phone
-            // 
-            this.Phone.Location = new System.Drawing.Point(132, 267);
-            this.Phone.Name = "Phone";
-            this.Phone.Size = new System.Drawing.Size(275, 20);
-            this.Phone.TabIndex = 10;
-            // 
-            // WorkPhone
-            // 
-            this.WorkPhone.Location = new System.Drawing.Point(132, 307);
-            this.WorkPhone.Name = "WorkPhone";
-            this.WorkPhone.Size = new System.Drawing.Size(275, 20);
-            this.WorkPhone.TabIndex = 11;
+            this.livingLocation.Location = new System.Drawing.Point(132, 217);
+            this.livingLocation.Name = "livingLocation";
+            this.livingLocation.Size = new System.Drawing.Size(275, 20);
+            this.livingLocation.TabIndex = 9;
             // 
             // tabPrivate
             // 
             this.tabPrivate.Controls.Add(this.label5);
-            this.tabPrivate.Controls.Add(this.dataGridLanguage);
+            this.tabPrivate.Controls.Add(this.languageDataGrid);
             this.tabPrivate.Controls.Add(this.label4);
             this.tabPrivate.Controls.Add(this.dataGridFamily);
             this.tabPrivate.Controls.Add(this.label3);
@@ -349,26 +370,35 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Дані про знання мов:";
             // 
-            // dataGridLanguage
+            // languageDataGrid
             // 
-            this.dataGridLanguage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridLanguage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.languageDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.languageDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column5});
-            this.dataGridLanguage.Location = new System.Drawing.Point(141, 240);
-            this.dataGridLanguage.Name = "dataGridLanguage";
-            this.dataGridLanguage.Size = new System.Drawing.Size(345, 100);
-            this.dataGridLanguage.TabIndex = 8;
+            this.languageDataGrid.Location = new System.Drawing.Point(141, 240);
+            this.languageDataGrid.Name = "languageDataGrid";
+            this.languageDataGrid.Size = new System.Drawing.Size(345, 100);
+            this.languageDataGrid.TabIndex = 8;
+            this.languageDataGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.languageDataGrid_CellValueChanged);
             // 
             // Column4
             // 
+            this.Column4.FillWeight = 200F;
             this.Column4.HeaderText = "Мова";
             this.Column4.Name = "Column4";
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column4.Width = 150;
             // 
             // Column5
             // 
+            this.Column5.FillWeight = 200F;
             this.Column5.HeaderText = "Рівень зання";
             this.Column5.Name = "Column5";
+            this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column5.Width = 150;
             // 
             // label4
             // 
@@ -542,8 +572,10 @@
             // 
             // Column11
             // 
+            this.Column11.FillWeight = 200F;
             this.Column11.HeaderText = "Місце роботи";
             this.Column11.Name = "Column11";
+            this.Column11.Width = 200;
             // 
             // Column12
             // 
@@ -578,8 +610,9 @@
             this.cancelButton.TabIndex = 6;
             this.cancelButton.Text = "Відмінити";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // AddPerson
+            // AddPersonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -588,10 +621,10 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.Name_lb);
-            this.Controls.Add(this.LastName);
-            this.Controls.Add(this.MiddleName);
-            this.Controls.Add(this.FirstName);
-            this.Name = "AddPerson";
+            this.Controls.Add(this.thirdName);
+            this.Controls.Add(this.firstName);
+            this.Controls.Add(this.secondName);
+            this.Name = "AddPersonForm";
             this.Text = "Додавання фізичної особи";
             this.tabControl1.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
@@ -599,7 +632,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.photoBox)).EndInit();
             this.tabPrivate.ResumeLayout(false);
             this.tabPrivate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridLanguage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.languageDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFamily)).EndInit();
             this.tabWork.ResumeLayout(false);
             this.tabWork.PerformLayout();
@@ -612,9 +645,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox FirstName;
-        private System.Windows.Forms.TextBox MiddleName;
-        private System.Windows.Forms.TextBox LastName;
+        private System.Windows.Forms.TextBox secondName;
+        private System.Windows.Forms.TextBox firstName;
+        private System.Windows.Forms.TextBox thirdName;
         private System.Windows.Forms.Label Name_lb;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabGeneral;
@@ -626,17 +659,14 @@
         private System.Windows.Forms.Label l4;
         private System.Windows.Forms.Label l3;
         private System.Windows.Forms.Label l1;
-        private System.Windows.Forms.TextBox Sex;
-        private System.Windows.Forms.TextBox Location;
-        private System.Windows.Forms.TextBox Certificate;
-        private System.Windows.Forms.TextBox IDCod;
-        private System.Windows.Forms.TextBox LiveLoc;
-        private System.Windows.Forms.TextBox Phone;
-        private System.Windows.Forms.TextBox WorkPhone;
+        private System.Windows.Forms.TextBox registrationLocation;
+        private System.Windows.Forms.TextBox passportID;
+        private System.Windows.Forms.TextBox taxID;
+        private System.Windows.Forms.TextBox livingLocation;
         private System.Windows.Forms.TabPage tabPrivate;
         private System.Windows.Forms.TabPage tabWork;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dataGridLanguage;
+        private System.Windows.Forms.DataGridView languageDataGrid;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridFamily;
         private System.Windows.Forms.Label label3;
@@ -647,8 +677,6 @@
         private System.Windows.Forms.TextBox Nationality;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -659,15 +687,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridView dataGridWork;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.Button photoBrowse;
         private System.Windows.Forms.PictureBox photoBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button cvButton;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker birthDayPicker;
+        private System.Windows.Forms.ComboBox sexBox;
+        private System.Windows.Forms.MaskedTextBox workPhone;
+        private System.Windows.Forms.MaskedTextBox phone;
+        private System.Windows.Forms.Label cvLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column5;
     }
 }
