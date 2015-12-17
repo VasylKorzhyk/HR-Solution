@@ -10,6 +10,6 @@ namespace HRM.DAL.Entities
     {
         public string Name { get; set; }
         public int WorkCode { get; set; }
-        public double WorkTime { get; set; }
+        public string WorkTime { get; set; }
     }
 }

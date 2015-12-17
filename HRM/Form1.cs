@@ -12,11 +12,14 @@ using System.Windows.Forms;
 using HRM.BLL.Services;
 using HRM.DAL.Entities;
 using System.Collections;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace HRM
 {
     public partial class Form1 : Form
     {
+
+
         private readonly HumanDBContext context;
         private readonly PersonService personService;
         private readonly EmployeeService employeeService;
@@ -38,7 +41,7 @@ namespace HRM
             this.searchPersonParametrs.DataSource = new[] { "Прізвище", "Ім'я", "По-батькові", "Вік" };
             this.searchPersonParametrs.SelectedIndex = 0;
 
-            this.searchEmployeeParametrs.DataSource = new[] { "П.І.Б.", "Відділення", "Посада", "Вид договору", "Дата створення договору" };
+            this.searchEmployeeParametrs.DataSource = new[] { "П.І.Б.", "Відділення", "Посада", "Вид договору" };
             this.searchEmployeeParametrs.SelectedIndex = 2;
 
             this.searchStatusParametrs.DataSource = new[] { "П.І.Б.", "Відділення", "Посада", "Вид договору", "Статус" };
@@ -164,14 +167,269 @@ namespace HRM
         private void addEmployeeRequestButton_Click(object sender, EventArgs e)
         {
             if (searchEmployeeValue.Text == "") return;
-            var request = searchPersonParametrs.Text + ": " + searchEmployeeValue.Text;
-            personParameters.Add(request);
-            this.personRequestList.Items.Add(request);
+            var request = searchEmployeeParametrs.Text + ": " + searchEmployeeValue.Text;
+            employeeParameters.Add(request);
+            this.employeeRequestList.Items.Add(request);
         }
 
         private void searchEmployeeButton_Click(object sender, EventArgs e)
         {
-
+            SearchEmployee(employeeParameters);
         }
+
+        private void SearchEmployee(List<string> employeeParameters)
+        {
+            if (personParameters.Count == 0) { return; }
+            IEnumerable<Employee> employee = employeeService.GetAll();
+            foreach (var param in personParameters)
+            {
+                if (employee == null) { return; };
+                switch (param.Split(' ')[0])
+                {
+                    case "П.І.Б.:":
+                        employee = employee.Where(x => (String.Format("{0} {1} {2}", x.Person.SecondName, x.Person.FirstName, x.Person.ThirdName)) == param.Split(' ')[1]).ToList();
+                        break;
+                    case "Відділення:":
+                        employee = employee.Where(x => x.Post.Department.Name == param.Split(' ')[1]).ToList();
+                        break;
+                    case "Посада:":
+                        employee = employee.Where(x => x.Post.Name == param.Split(' ')[1]).ToList();
+                        break;
+                    case "Вид_договору:":
+                        employee = employee.Where(x => x.ContractType == param.Split(' ')[1]).ToList();
+                        break;
+
+                }
+                this.PersonDataGrid.Rows.Clear();
+                if (employee.Count() != 0)
+                {
+                    employee.ToList()
+                        .Select(p => PersonDataGrid.Rows.Add(p.Id, p.Person.SecondName, p.Person.FirstName, p.Person.ThirdName)).ToList();
+                }
+                else
+                {
+                    personParameters.Clear();
+                    this.personRequestList.Items.Clear();
+                    searchPersonParametrs.Text = "";
+                    MessageBox.Show("Результат відсутній!");
+                }
+            }
+        }
+
+        private void FindAndReplace(Microsoft.Office.Interop.Word.Application WordApp, object findText, object replaceWithText)
+        {
+            object matchCase = true;
+            object matchWholeWord = true;
+            object matchWildCards = false;
+            object matchSoundsLike = false;
+            object nmatchAllWordForms = false;
+            object forward = true;
+            object format = false;
+            object matchKashida = false;
+            object matchDiacritics = false;
+            object matchAlefHamza = false;
+            object matchControl = false;
+            object read_only = false;
+            object visible = true;
+            object replace = 2;
+            object wrap = 1;
+
+            WordApp.Selection.Find.Execute(ref findText,
+                ref matchCase, ref matchWholeWord,
+                ref matchWildCards, ref matchSoundsLike,
+                ref nmatchAllWordForms, ref forward,
+                ref wrap, ref format, ref replaceWithText,
+                ref replace, ref matchKashida,
+                ref matchDiacritics, ref matchAlefHamza,
+                ref matchControl);
+        }
+        private void monthWorkReport_Click(object sender, EventArgs e)
+        {
+            Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+            Word.Document newDoc = null;
+            DateTime now = DateTime.Now;
+            newDoc = wordApp.Documents.Add(Application.StartupPath+"\\monthWorkReport.rtf");
+            newDoc.Activate();
+            IEnumerable<Employee> employees = this.employeeService.GetAll();
+            //date
+            this.FindAndReplace(wordApp, "<day>", now.Day);
+            this.FindAndReplace(wordApp, "<month>", now.ToString("MMMM"));
+            this.FindAndReplace(wordApp, "<year>", now.Year);
+            //codes
+            this.FindAndReplace(wordApp, "<orgName>", orgName.Text);
+            this.FindAndReplace(wordApp, "<adr>", orgAdr.Text);
+            this.FindAndReplace(wordApp, "<edprou>", EDPROU.Text);
+            this.FindAndReplace(wordApp, "<coatuu>", COATUU.Text);
+            this.FindAndReplace(wordApp, "<qved>", QVED.Text);
+            this.FindAndReplace(wordApp, "<kfv>", KFV.Text);
+            this.FindAndReplace(wordApp, "<kopfg>", KOPFG.Text);
+            this.FindAndReplace(wordApp, "<kodu>", KODU.Text);
+            //topEDPROU
+            this.FindAndReplace(wordApp, "<e>", EDPROU.Text[0]);
+            this.FindAndReplace(wordApp, "<d>", EDPROU.Text[1]);
+            this.FindAndReplace(wordApp, "<p>", EDPROU.Text[2]);
+            this.FindAndReplace(wordApp, "<r>", EDPROU.Text[3]);
+            this.FindAndReplace(wordApp, "<o>", EDPROU.Text[4]);
+            this.FindAndReplace(wordApp, "<u>", EDPROU.Text[5]);
+            this.FindAndReplace(wordApp, "<nu>", EDPROU.Text[6]);
+            this.FindAndReplace(wordApp, "<m>", EDPROU.Text[7]);
+
+            this.FindAndReplace(wordApp, "<rmAvCount>", employees.Where(x => x.WorkType.WorkTime == "Повна зайнятість" && (x.Hiredate.Month < DateTime.Now.Month)).Count());
+            this.FindAndReplace(wordApp, "<AvCount>", employees.Where(x => x.WorkType.WorkTime == "Повна зайнятість" && (x.Hiredate.Month < DateTime.Now.Year)).Count());
+            this.FindAndReplace(wordApp, "<rmAvStCount>", employees.Where(x => (x.Hiredate.Month < DateTime.Now.Year) && (x.Hiredate.Month < DateTime.Now.Month)).Count());
+            this.FindAndReplace(wordApp, "<AvStCount>", employees.Where(x => (x.Hiredate.Month < DateTime.Now.Year)));
+
+            wordApp.Visible = true;
+        }
+        //private void vacancyReport_Click(object sender, EventArgs e)
+        //{
+        //    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+        //    Microsoft.Office.Interop.Word.Document newDoc = null;
+        //    DateTime now = DateTime.Now;
+        //    newDoc = wordApp.Documents.Add(@"F:\vacancyAvailabilityReport.rtf");
+        //    newDoc.Activate();
+        //    //date
+        //    this.FindAndReplace(wordApp, "<day>", now.Day);
+        //    this.FindAndReplace(wordApp, "<month>", now.ToString("MMMM"));
+        //    this.FindAndReplace(wordApp, "<year>", now.Year);
+        //    //codes
+        //    this.FindAndReplace(wordApp, "<orgName>", orgName.Text);
+        //    this.FindAndReplace(wordApp, "<adr>", orgAdr.Text);
+        //    this.FindAndReplace(wordApp, "<edprou>", EDPROU.Text);
+        //    this.FindAndReplace(wordApp, "<coatuu>", COATUU.Text);
+        //    this.FindAndReplace(wordApp, "<qved>", QVED.Text);
+        //    this.FindAndReplace(wordApp, "<kfv>", KFV.Text);
+        //    this.FindAndReplace(wordApp, "<kopfg>", KOPFG.Text);
+        //    this.FindAndReplace(wordApp, "<kodu>", KODU.Text);
+
+        //    //queries here
+        //    /*for(int i=0;i<res.Count;i++)
+        //    {
+        //        this.FindAndReplace(wordApp, "<prof"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<code"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<typ"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<reg"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<wc"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<sc"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<sal"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<not"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<exp"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<edul"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<spec"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<lev"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<lad"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<add"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<dis"+i+">", result);
+        //    }*/
+
+        //    wordApp.Visible = true;
+        //}
+
+        //private void releaseReport_Click(object sender, EventArgs e)
+        //{
+        //    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+        //    Microsoft.Office.Interop.Word.Document newDoc = null;
+        //    DateTime now = DateTime.Now;
+        //    newDoc = wordApp.Documents.Add(@"F:\workerReleaseReport.rtf");
+        //    newDoc.Activate();
+        //    //date
+        //    this.FindAndReplace(wordApp, "<day>", now.Day);
+        //    this.FindAndReplace(wordApp, "<mon>", now.Month);
+        //    this.FindAndReplace(wordApp, "<month>", now.ToString("MMMM"));
+        //    this.FindAndReplace(wordApp, "<year>", now.Year);
+        //    //codes
+        //    this.FindAndReplace(wordApp, "<orgName>", orgName.Text);
+        //    this.FindAndReplace(wordApp, "<adr>", orgAdr.Text);
+        //    this.FindAndReplace(wordApp, "<edprou>", EDPROU.Text);
+        //    this.FindAndReplace(wordApp, "<coatuu>", COATUU.Text);
+        //    this.FindAndReplace(wordApp, "<qved>", QVED.Text);
+        //    this.FindAndReplace(wordApp, "<kfv>", KFV.Text);
+        //    this.FindAndReplace(wordApp, "<kopfg>", KOPFG.Text);
+        //    this.FindAndReplace(wordApp, "<kodu>", KODU.Text);
+
+        //    //queries here
+        //    /*for(int i=0;i<res.Count;i++)
+        //    {
+        //        this.FindAndReplace(wordApp, "<name"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<ID"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<prn"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<pid"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<qual"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<sal"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<dat"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<wp"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<s"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<bd"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<edu"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<dis"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<nd"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<pd"+i+">", result);
+        //        this.FindAndReplace(wordApp, "<ladr"+i+">", result);
+        //    }*/
+
+        //    wordApp.Visible = true;
+        //}
+
+        //private void wCountReport_Click(object sender, EventArgs e)
+        //{
+        //    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+        //    Microsoft.Office.Interop.Word.Document newDoc = null;
+        //    DateTime now = DateTime.Now;
+        //    newDoc = wordApp.Documents.Add(@"F:\workerCountReport.rtf");
+        //    newDoc.Activate();
+        //    //date
+        //    this.FindAndReplace(wordApp, "<day>", now.Day);
+        //    this.FindAndReplace(wordApp, "<month>", now.ToString("MMMM"));
+        //    this.FindAndReplace(wordApp, "<year>", now.Year);
+        //    //codes
+        //    this.FindAndReplace(wordApp, "<orgName>", orgName.Text);
+        //    this.FindAndReplace(wordApp, "<adr>", orgAdr.Text);
+        //    this.FindAndReplace(wordApp, "<edprou>", EDPROU.Text);
+        //    this.FindAndReplace(wordApp, "<coatuu>", COATUU.Text);
+        //    this.FindAndReplace(wordApp, "<qved>", QVED.Text);
+        //    this.FindAndReplace(wordApp, "<kfv>", KFV.Text);
+        //    this.FindAndReplace(wordApp, "<kopfg>", KOPFG.Text);
+        //    this.FindAndReplace(wordApp, "<kodu>", KODU.Text);
+        //    //topEDPROU
+        //    this.FindAndReplace(wordApp, "<e>", EDPROU.Text[0]);
+        //    this.FindAndReplace(wordApp, "<d>", EDPROU.Text[1]);
+        //    this.FindAndReplace(wordApp, "<p>", EDPROU.Text[2]);
+        //    this.FindAndReplace(wordApp, "<r>", EDPROU.Text[3]);
+        //    this.FindAndReplace(wordApp, "<o>", EDPROU.Text[4]);
+        //    this.FindAndReplace(wordApp, "<u>", EDPROU.Text[5]);
+        //    this.FindAndReplace(wordApp, "<nu>", EDPROU.Text[6]);
+        //    this.FindAndReplace(wordApp, "<m>", EDPROU.Text[7]);
+
+        //    //queries here
+        //    /*this.FindAndReplace(wordApp, "<wCount>", queryresult);
+        //    this.FindAndReplace(wordApp, "<fwCount>", queryresult);
+        //    this.FindAndReplace(wordApp, "<nfCount>", queryresult);
+        //    this.FindAndReplace(wordApp, "<fnfCount>", queryresult);
+        //    this.FindAndReplace(wordApp, "<34Count>", queryresult);
+        //    this.FindAndReplace(wordApp, "<f34Count>", queryresult);
+        //    this.FindAndReplace(wordApp, "<24Count>", queryresult);
+        //    this.FindAndReplace(wordApp, "<f24Count>", queryresult);
+        //    this.FindAndReplace(wordApp, "<54Count>", queryresult);
+        //    this.FindAndReplace(wordApp, "<f54Count>", queryresult);
+        //    this.FindAndReplace(wordApp, "<59Count>", queryresult);
+        //    this.FindAndReplace(wordApp, "<f59Count>", queryresult);
+        //    this.FindAndReplace(wordApp, "<nfedu>", queryresult);
+        //    this.FindAndReplace(wordApp, "<fnfedu>", queryresult);
+        //    this.FindAndReplace(wordApp, "<fedu>", queryresult);
+        //    this.FindAndReplace(wordApp, "<ffedu>", queryresult);
+        //    this.FindAndReplace(wordApp, "<preg>", queryresult);
+        //    this.FindAndReplace(wordApp, "<decret>", queryresult);
+        //    this.FindAndReplace(wordApp, "<fdecret>", queryresult);
+        //    this.FindAndReplace(wordApp, "<up>", queryresult);
+        //    this.FindAndReplace(wordApp, "<fup>", queryresult);
+        //    this.FindAndReplace(wordApp, "<wup>", queryresult);
+        //    this.FindAndReplace(wordApp, "<fwup>", queryresult);
+        //    this.FindAndReplace(wordApp, "<sup>", queryresult);
+        //    this.FindAndReplace(wordApp, "<fsup>", queryresult);
+        //    this.FindAndReplace(wordApp, "<fup>", queryresult);
+        //    this.FindAndReplace(wordApp, "<ffup>", queryresult);*/
+
+        //    wordApp.Visible = true;
+        //}
     }
 }
