@@ -55,23 +55,9 @@
             this.salaryBox = new System.Windows.Forms.TextBox();
             this.addEmployeeButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dataGridViewProbation = new System.Windows.Forms.DataGridView();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.promotionTypeBox = new System.Windows.Forms.ComboBox();
-            this.addProbationButton = new System.Windows.Forms.Button();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.changeStatusButton = new System.Windows.Forms.Button();
-            this.statusLabel = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProbation)).BeginInit();
-            this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -306,7 +292,7 @@
             // 
             // addEmployeeButton
             // 
-            this.addEmployeeButton.Location = new System.Drawing.Point(423, 395);
+            this.addEmployeeButton.Location = new System.Drawing.Point(417, 239);
             this.addEmployeeButton.Name = "addEmployeeButton";
             this.addEmployeeButton.Size = new System.Drawing.Size(130, 23);
             this.addEmployeeButton.TabIndex = 10;
@@ -316,7 +302,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(559, 395);
+            this.cancelButton.Location = new System.Drawing.Point(553, 239);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 11;
@@ -324,109 +310,11 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.dataGridViewProbation);
-            this.groupBox4.Location = new System.Drawing.Point(20, 272);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(315, 107);
-            this.groupBox4.TabIndex = 12;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Заохочення та стягнення";
-            // 
-            // dataGridViewProbation
-            // 
-            this.dataGridViewProbation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProbation.Location = new System.Drawing.Point(6, 19);
-            this.dataGridViewProbation.Name = "dataGridViewProbation";
-            this.dataGridViewProbation.Size = new System.Drawing.Size(303, 82);
-            this.dataGridViewProbation.TabIndex = 0;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Controls.Add(this.promotionTypeBox);
-            this.groupBox5.Controls.Add(this.addProbationButton);
-            this.groupBox5.Location = new System.Drawing.Point(342, 272);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(292, 107);
-            this.groupBox5.TabIndex = 13;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Панель керування";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 22);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 13);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Тип дії";
-            // 
-            // promotionTypeBox
-            // 
-            this.promotionTypeBox.FormattingEnabled = true;
-            this.promotionTypeBox.Location = new System.Drawing.Point(81, 19);
-            this.promotionTypeBox.Name = "promotionTypeBox";
-            this.promotionTypeBox.Size = new System.Drawing.Size(205, 21);
-            this.promotionTypeBox.TabIndex = 1;
-            // 
-            // addProbationButton
-            // 
-            this.addProbationButton.Location = new System.Drawing.Point(206, 78);
-            this.addProbationButton.Name = "addProbationButton";
-            this.addProbationButton.Size = new System.Drawing.Size(80, 23);
-            this.addProbationButton.TabIndex = 0;
-            this.addProbationButton.Text = "Додати заохочення";
-            this.addProbationButton.UseVisualStyleBackColor = true;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.changeStatusButton);
-            this.groupBox6.Controls.Add(this.statusLabel);
-            this.groupBox6.Controls.Add(this.label13);
-            this.groupBox6.Location = new System.Drawing.Point(342, 195);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(292, 71);
-            this.groupBox6.TabIndex = 14;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Статус працівника";
-            // 
-            // changeStatusButton
-            // 
-            this.changeStatusButton.Location = new System.Drawing.Point(12, 39);
-            this.changeStatusButton.Name = "changeStatusButton";
-            this.changeStatusButton.Size = new System.Drawing.Size(121, 23);
-            this.changeStatusButton.TabIndex = 2;
-            this.changeStatusButton.Text = "Змінити стан";
-            this.changeStatusButton.UseVisualStyleBackColor = true;
-            // 
-            // statusLabel
-            // 
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(110, 19);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(47, 13);
-            this.statusLabel.TabIndex = 1;
-            this.statusLabel.Text = "<status>";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(9, 19);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(84, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Поточний стан:";
-            // 
             // AddEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 424);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addEmployeeButton);
             this.Controls.Add(this.groupBox3);
@@ -442,12 +330,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProbation)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -479,16 +361,6 @@
         private System.Windows.Forms.TextBox salaryBox;
         private System.Windows.Forms.Button addEmployeeButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dataGridViewProbation;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox promotionTypeBox;
-        private System.Windows.Forms.Button addProbationButton;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button changeStatusButton;
-        private System.Windows.Forms.Label statusLabel;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker fireDatePicker;
         private System.Windows.Forms.DateTimePicker hireDatePicker;
         private System.Windows.Forms.DateTimePicker probationDatePicker;

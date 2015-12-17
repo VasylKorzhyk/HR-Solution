@@ -162,10 +162,7 @@ namespace HRM
 
         private static bool IsCorrectData(Person person)
         {
-            return IsCorrectName(person) &&
-                IsCorrectPersInfo(person) &&
-                IsCorrectGenInfo(person) &&
-                IsCorrectDate(person);
+            return IsCorrectName(person);
         }
 
         private static bool IsCorrectName(Person person)

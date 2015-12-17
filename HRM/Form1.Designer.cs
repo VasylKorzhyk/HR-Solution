@@ -203,6 +203,7 @@
             this.button9.TabIndex = 0;
             this.button9.Text = "Звіт з праці місячний";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.monthWorkReport_Click);
             // 
             // button15
             // 
@@ -877,6 +878,7 @@
             this.KODU.Name = "KODU";
             this.KODU.Size = new System.Drawing.Size(246, 20);
             this.KODU.TabIndex = 23;
+            this.KODU.Text = "КОДУ";
             // 
             // KOPFG
             // 
@@ -884,6 +886,7 @@
             this.KOPFG.Name = "KOPFG";
             this.KOPFG.Size = new System.Drawing.Size(244, 20);
             this.KOPFG.TabIndex = 22;
+            this.KOPFG.Text = "КОПФГ";
             // 
             // KFV
             // 
@@ -891,6 +894,7 @@
             this.KFV.Name = "KFV";
             this.KFV.Size = new System.Drawing.Size(244, 20);
             this.KFV.TabIndex = 21;
+            this.KFV.Text = "КФВ";
             // 
             // QVED
             // 
@@ -898,6 +902,7 @@
             this.QVED.Name = "QVED";
             this.QVED.Size = new System.Drawing.Size(244, 20);
             this.QVED.TabIndex = 20;
+            this.QVED.Text = "КВЕД";
             // 
             // COATUU
             // 
@@ -905,6 +910,7 @@
             this.COATUU.Name = "COATUU";
             this.COATUU.Size = new System.Drawing.Size(244, 20);
             this.COATUU.TabIndex = 19;
+            this.COATUU.Text = "КОАТУУ";
             // 
             // EDPROU
             // 
@@ -912,6 +918,7 @@
             this.EDPROU.Name = "EDPROU";
             this.EDPROU.Size = new System.Drawing.Size(244, 20);
             this.EDPROU.TabIndex = 18;
+            this.EDPROU.Text = "12345678";
             // 
             // orgAdr
             // 
@@ -919,6 +926,7 @@
             this.orgAdr.Name = "orgAdr";
             this.orgAdr.Size = new System.Drawing.Size(244, 20);
             this.orgAdr.TabIndex = 17;
+            this.orgAdr.Text = "Київ";
             // 
             // orgName
             // 
@@ -926,6 +934,7 @@
             this.orgName.Name = "orgName";
             this.orgName.Size = new System.Drawing.Size(244, 20);
             this.orgName.TabIndex = 16;
+            this.orgName.Text = "HR-Solution";
             // 
             // Form1
             // 

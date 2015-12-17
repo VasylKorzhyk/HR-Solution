@@ -58,6 +58,12 @@ namespace HRM
             this.personBox.DataSource = this.personService.GetAll().ToList();
             this.salaryTypeBox.DataSource = this.context.SalaryTypes.ToList();
             this.postBox.DataSource =  this.context.Posts.ToList();
+            this.postTypeBox.DataSource = new[] { "Повна зайнятість", "Часткова зайнятість" };
+            this.postTypeBox.SelectedText = "Повна зайнятість";
+            this.postBox.DataSource = this.context.Posts.ToList();
+            this.ContractTypeBox.SelectedItem = "Короткостроковий";
+            this.ContractIDBox.Text = this.GetHashCode().ToString();
+            postBox.SelectedItem = this.context.Posts.ToList();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

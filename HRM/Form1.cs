@@ -174,14 +174,18 @@ namespace HRM
 
         private void searchEmployeeButton_Click(object sender, EventArgs e)
         {
-            SearchEmployee(employeeParameters);
+            try
+            {
+                SearchEmployee(employeeParameters);
+            }
+            catch { }
         }
 
         private void SearchEmployee(List<string> employeeParameters)
         {
-            if (personParameters.Count == 0) { return; }
+            if (employeeParameters.Count == 0) { return; }
             IEnumerable<Employee> employee = employeeService.GetAll();
-            foreach (var param in personParameters)
+            foreach (var param in employeeParameters)
             {
                 if (employee == null) { return; };
                 switch (param.Split(' ')[0])
@@ -200,17 +204,17 @@ namespace HRM
                         break;
 
                 }
-                this.PersonDataGrid.Rows.Clear();
+                this.EmployeeDataGrid.Rows.Clear();
                 if (employee.Count() != 0)
                 {
                     employee.ToList()
-                        .Select(p => PersonDataGrid.Rows.Add(p.Id, p.Person.SecondName, p.Person.FirstName, p.Person.ThirdName)).ToList();
+                        .Select(p => EmployeeDataGrid.Rows.Add(p.Id, p.Person, p.Post.Department, p.Post, p.ContractType, p.Hiredate)).ToList();
                 }
                 else
                 {
-                    personParameters.Clear();
-                    this.personRequestList.Items.Clear();
-                    searchPersonParametrs.Text = "";
+                    employeeParameters.Clear();
+                    this.employeeRequestList.Items.Clear();
+                    searchEmployeeParametrs.Text = "";
                     MessageBox.Show("Результат відсутній!");
                 }
             }
@@ -248,7 +252,7 @@ namespace HRM
             Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
             Word.Document newDoc = null;
             DateTime now = DateTime.Now;
-            newDoc = wordApp.Documents.Add(Application.StartupPath+"\\monthWorkReport.rtf");
+            newDoc = wordApp.Documents.Add(Application.StartupPath+"\\monthWorkReport.doc");
             newDoc.Activate();
             IEnumerable<Employee> employees = this.employeeService.GetAll();
             //date
