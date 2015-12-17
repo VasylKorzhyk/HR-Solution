@@ -18,13 +18,21 @@ namespace HRM.DAL.Migrations
         {
             context.Posts.AddOrUpdate(
                 p => p.Name,
-                   new Post() { Id = Guid.NewGuid().ToString(), Name = "Менеджер" },
-                   new Post() { Id = Guid.NewGuid().ToString(), Name = "Інженер" }
+                   new Post { Id = Guid.NewGuid().ToString(), Name = "Менеджер" },
+                   new Post { Id = Guid.NewGuid().ToString(), Name = "Інженер" }
                );
+
+            context.Departments.AddOrUpdate(
+                p => p.Name,
+                   new Department { Id = Guid.NewGuid().ToString(), Name = "D001" },
+                   new Department { Id = Guid.NewGuid().ToString(), Name = "D002" },
+                   new Department { Id = Guid.NewGuid().ToString(), Name = "D003" }
+               );
+
             context.SalaryTypes.AddOrUpdate(
                 st => st.Name,
-                    new SalaryType() { Id = Guid.NewGuid().ToString(), Name = "Погодинний" },
-                    new SalaryType() { Id = Guid.NewGuid().ToString(), Name = "Помісячний" }
+                    new SalaryType { Id = Guid.NewGuid().ToString(), Name = "Погодинний" },
+                    new SalaryType { Id = Guid.NewGuid().ToString(), Name = "Помісячний" }
                 );
 
             context.Persons.AddOrUpdate(
@@ -77,18 +85,6 @@ namespace HRM.DAL.Migrations
                 new KnowledgeLevelType { Id = Guid.NewGuid().ToString(), Name = "Advanced" },
                 new KnowledgeLevelType { Id = Guid.NewGuid().ToString(), Name = "Proficiency" }
                 );
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
         }
     }
 }

@@ -35,5 +35,10 @@ namespace HRM.BLL.Services
         {
             return this.employeeRepository.GetAll();
         }
+
+        public void Remove(string id)
+        {
+            this.employeeRepository.Remove(id);
+        }
     }
 }

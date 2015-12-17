@@ -49,7 +49,7 @@ namespace HRM
         private void addButton_Click(object sender, EventArgs e)
         {
             Person person = ReadDataFromForm();
-            if (IsCorrectName(person))
+            if (IsCorrectData(person))
             {
                 this.personService.Add(person);
                 this.Close();
@@ -60,13 +60,9 @@ namespace HRM
             }
         }
 
-        private static bool IsCorrectName(Person person)
-        {
-            return person.FirstName != String.Empty && person.SecondName != String.Empty && person.ThirdName != String.Empty;
-        }
-
         private Person ReadDataFromForm()
         {
+
             var person = new Person
             {
                 Id = Guid.NewGuid().ToString(),
@@ -81,6 +77,9 @@ namespace HRM
                 LivingAddress = livingLocation.Text,
                 PersonalPhone = phone.Text,
                 WorkPhone = workPhone.Text,
+                Citizenship = Nationality.Text,
+                Army = new Army { Id = Guid.NewGuid().ToString(), Registration = Military.Text },
+                Disablement = Invalidity.Text
             };
 
             savePhoto(person);
@@ -138,7 +137,7 @@ namespace HRM
             {
                 this.cvLabel.Text = openFileDialog1.FileName;
             }
-            else 
+            else
             {
                 this.cvLabel.Text = String.Empty;
             }
@@ -151,14 +150,42 @@ namespace HRM
 
         private void languageDataGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0 && e.RowIndex >-1 && this.languageDataGrid.Rows[e.RowIndex].Cells[1].Value == null)
+            if (e.ColumnIndex == 0 && e.RowIndex > -1 && this.languageDataGrid.Rows[e.RowIndex].Cells[1].Value == null)
             {
                 this.languageDataGrid.Rows[e.RowIndex].Cells[1].Value = "Beginner";
             }
-            if (e.RowIndex >-1 && this.languageDataGrid.Rows[e.RowIndex].Cells[0].Value == null && this.languageDataGrid.Rows[e.RowIndex].Cells[1].Value != null)
+            if (e.RowIndex > -1 && this.languageDataGrid.Rows[e.RowIndex].Cells[0].Value == null && this.languageDataGrid.Rows[e.RowIndex].Cells[1].Value != null)
             {
                 this.languageDataGrid.Rows.Remove(this.languageDataGrid.Rows[e.RowIndex]);
             }
+        }
+
+        private static bool IsCorrectData(Person person)
+        {
+            return IsCorrectName(person) &&
+                IsCorrectPersInfo(person) &&
+                IsCorrectGenInfo(person) &&
+                IsCorrectDate(person);
+        }
+
+        private static bool IsCorrectName(Person person)
+        {
+            return person.FirstName != String.Empty && person.SecondName != String.Empty && person.ThirdName != String.Empty;
+        }
+        private static bool IsCorrectGenInfo(Person person)
+        {
+            return person.RegistrationAddress != String.Empty && person.PassportID != String.Empty && person.TaxID != String.Empty
+                    && person.LivingAddress != String.Empty;
+        }
+        private static bool IsCorrectDate(Person person)
+        {
+            return person.BirthdayDate < DateTime.Now && person.BirthdayDate > new DateTime(1940, 1, 1);
+        }
+
+        private static bool IsCorrectPersInfo(Person person)
+        {
+            return person.Citizenship != String.Empty && ((person.Sex == "жіноча" && person.Army == null) || person.Army != null) && person.Disablement != String.Empty
+                && person.Languages != null;
         }
     }
 }

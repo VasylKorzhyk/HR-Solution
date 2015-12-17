@@ -38,5 +38,11 @@ namespace HRM.DAL.Repositories
         {
             return this.context.Employees;
         }
+
+        public void Remove(string id)
+        {
+            this.context.Employees.Remove(this.Get(id));
+            this.context.SaveChanges();
+        }
     }
 }

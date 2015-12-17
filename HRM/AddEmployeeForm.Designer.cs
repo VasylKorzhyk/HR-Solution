@@ -145,6 +145,7 @@
             // 
             this.ContractIDBox.Location = new System.Drawing.Point(106, 49);
             this.ContractIDBox.Name = "ContractIDBox";
+            this.ContractIDBox.ReadOnly = true;
             this.ContractIDBox.Size = new System.Drawing.Size(203, 20);
             this.ContractIDBox.TabIndex = 2;
             // 

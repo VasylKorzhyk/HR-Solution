@@ -8,7 +8,7 @@ namespace HRM.DAL.Entities
 {
     public class Language : Entity
     {
-        LanguageType LanguageType { get; set; }
-        KnowledgeLevelType KnowledgeLevelType { get; set; }
+        public virtual LanguageType LanguageType { get; set; }
+        public virtual KnowledgeLevelType KnowledgeLevelType { get; set; }
     }
 }

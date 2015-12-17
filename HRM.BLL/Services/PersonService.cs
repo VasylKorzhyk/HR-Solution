@@ -26,5 +26,15 @@ namespace HRM.BLL.Services
         {
             return this.personRepository.GetAll();
         }
+
+        public void Update(Person person)
+        {
+            this.personRepository.Update(person);
+        }
+
+        public Person Get(string id)
+        {
+            return this.personRepository.Get(id);
+        }
     }
 }

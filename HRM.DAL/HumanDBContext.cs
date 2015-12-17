@@ -30,6 +30,7 @@ namespace HRM.DAL
         {
             foreach (var change in ChangeTracker.Entries<Entity>())
             {
+                if (change.State == EntityState.Deleted) { return; }
                 var values = change.CurrentValues;
                 foreach (var name in values.PropertyNames)
                 {

@@ -61,5 +61,31 @@ namespace HRM
                 .Select(em => StatusDataGrid.Rows.Add(em.Id, em.Person, em.Post.Department, em.Post, em.Person.WorkerStatus)).ToList();
 
         }
+
+        private void fireEmployeeButton_Click(object sender, EventArgs e)
+        {
+            var id = EmployeeDataGrid.SelectedRows.Count != 0 ?
+                 EmployeeDataGrid.SelectedRows[0].Cells[0].Value != null ?
+                 EmployeeDataGrid.SelectedRows[0].Cells[0].Value.ToString() : "" : "";
+            if (id != "") { this.employeeService.Remove(id); } else { MessageBox.Show("Працівник не знайдений!"); };
+        }
+
+        private void PersonDataGrid_DoubleClick(object sender, EventArgs e)
+        {
+            DataGridView dg = (DataGridView)sender;
+            var id = dg.CurrentRow.Cells[0].Value != null ?
+                 dg.CurrentRow.Cells[0].Value.ToString() : "";
+            
+            if (id != "") { new EditPersonForm(context, id).Show(); } else { MessageBox.Show("Працівник не знайдений!"); };
+        }
+
+        private void EmployeeDataGrid_DoubleClick(object sender, EventArgs e)
+        {
+            DataGridView dg = (DataGridView)sender;
+            var id = dg.CurrentRow.Cells[0].Value != null ?
+                 dg.CurrentRow.Cells[0].Value.ToString() : "";
+
+            if (id != "") { new EditEmployeeForm(context, id).Show(); } else { MessageBox.Show("Працівник не знайдений!"); };
+        }
     }
 }
