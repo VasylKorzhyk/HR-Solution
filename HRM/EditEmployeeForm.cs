@@ -38,6 +38,7 @@ namespace HRM
 
             this.employee.Person = (Person)personBox.SelectedItem;
             this.employee.ContractID = this.GetHashCode();
+            this.employee.Post.Department = (Department)departmentBox.SelectedItem;
             this.employee.ContractType = ContractTypeBox.SelectedItem.ToString();
             this.employee.Hiredate = hireDatePicker.Value;
             this.employee.Firedate = fireDatePicker.Value;
@@ -50,8 +51,9 @@ namespace HRM
         {
             this.personBox.DataSource = this.personService.GetAll().ToList();
             this.salaryTypeBox.DataSource = this.context.SalaryTypes.ToList();
-            this.departmentBox.DataSource = this.context.Departments;
-            //this.postTypeBox.DataSource = this.context.Posts
+            this.departmentBox.DataSource = this.context.Departments.ToList();
+            this.postTypeBox.DataSource = new[]{"Повна зайнятість", "Часткова зайнятість" };
+            this.postTypeBox.SelectedText = "Повна зайнятість";
             this.postBox.DataSource = this.context.Posts.ToList();
             this.ContractTypeBox.SelectedItem = "Короткостроковий";
             this.ContractIDBox.Text = this.GetHashCode().ToString();

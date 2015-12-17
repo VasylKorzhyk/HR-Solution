@@ -38,7 +38,7 @@
             this.searchPersonParametrs = new System.Windows.Forms.ComboBox();
             this.addSearchRequestButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
-            this.searchValue = new System.Windows.Forms.TextBox();
+            this.searchPersonValue = new System.Windows.Forms.TextBox();
             this.groupBoxPerson = new System.Windows.Forms.GroupBox();
             this.PersonDataGrid = new System.Windows.Forms.DataGridView();
             this.dataBaseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -166,7 +166,7 @@
             this.groupBoxSearch.Controls.Add(this.searchPersonParametrs);
             this.groupBoxSearch.Controls.Add(this.addSearchRequestButton);
             this.groupBoxSearch.Controls.Add(this.searchButton);
-            this.groupBoxSearch.Controls.Add(this.searchValue);
+            this.groupBoxSearch.Controls.Add(this.searchPersonValue);
             this.groupBoxSearch.Location = new System.Drawing.Point(642, 22);
             this.groupBoxSearch.Name = "groupBoxSearch";
             this.groupBoxSearch.Size = new System.Drawing.Size(316, 202);
@@ -188,7 +188,7 @@
             this.personRequestList.FormattingEnabled = true;
             this.personRequestList.Location = new System.Drawing.Point(6, 36);
             this.personRequestList.Name = "personRequestList";
-            this.personRequestList.Size = new System.Drawing.Size(150, 160);
+            this.personRequestList.Size = new System.Drawing.Size(150, 121);
             this.personRequestList.TabIndex = 8;
             // 
             // label2
@@ -225,6 +225,7 @@
             this.addSearchRequestButton.TabIndex = 4;
             this.addSearchRequestButton.Text = "Додати";
             this.addSearchRequestButton.UseVisualStyleBackColor = true;
+            this.addSearchRequestButton.Click += new System.EventHandler(this.addSearchRequestButton_Click);
             // 
             // searchButton
             // 
@@ -234,13 +235,14 @@
             this.searchButton.TabIndex = 3;
             this.searchButton.Text = "Пошук";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // searchValue
+            // searchPersonValue
             // 
-            this.searchValue.Location = new System.Drawing.Point(162, 76);
-            this.searchValue.Name = "searchValue";
-            this.searchValue.Size = new System.Drawing.Size(148, 20);
-            this.searchValue.TabIndex = 2;
+            this.searchPersonValue.Location = new System.Drawing.Point(162, 76);
+            this.searchPersonValue.Name = "searchPersonValue";
+            this.searchPersonValue.Size = new System.Drawing.Size(148, 20);
+            this.searchPersonValue.TabIndex = 2;
             // 
             // groupBoxPerson
             // 
@@ -262,6 +264,7 @@
             this.columnPersonSecondname});
             this.PersonDataGrid.Location = new System.Drawing.Point(7, 20);
             this.PersonDataGrid.Name = "PersonDataGrid";
+            this.PersonDataGrid.ReadOnly = true;
             this.PersonDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PersonDataGrid.Size = new System.Drawing.Size(606, 332);
             this.PersonDataGrid.TabIndex = 0;
@@ -273,6 +276,7 @@
             this.dataBaseID.FillWeight = 50F;
             this.dataBaseID.HeaderText = "ID";
             this.dataBaseID.Name = "dataBaseID";
+            this.dataBaseID.ReadOnly = true;
             // 
             // columnPersonThirdname
             // 
@@ -280,6 +284,7 @@
             this.columnPersonThirdname.FillWeight = 77.397F;
             this.columnPersonThirdname.HeaderText = "Прізвище";
             this.columnPersonThirdname.Name = "columnPersonThirdname";
+            this.columnPersonThirdname.ReadOnly = true;
             // 
             // columnPersonName
             // 
@@ -287,6 +292,7 @@
             this.columnPersonName.FillWeight = 77.397F;
             this.columnPersonName.HeaderText = "Ім\'я";
             this.columnPersonName.Name = "columnPersonName";
+            this.columnPersonName.ReadOnly = true;
             // 
             // columnPersonSecondname
             // 
@@ -294,6 +300,7 @@
             this.columnPersonSecondname.FillWeight = 77.397F;
             this.columnPersonSecondname.HeaderText = "По-батькові";
             this.columnPersonSecondname.Name = "columnPersonSecondname";
+            this.columnPersonSecondname.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -359,7 +366,7 @@
             this.employeeRequestList.FormattingEnabled = true;
             this.employeeRequestList.Location = new System.Drawing.Point(6, 36);
             this.employeeRequestList.Name = "employeeRequestList";
-            this.employeeRequestList.Size = new System.Drawing.Size(150, 160);
+            this.employeeRequestList.Size = new System.Drawing.Size(150, 121);
             this.employeeRequestList.TabIndex = 8;
             // 
             // label5
@@ -396,6 +403,7 @@
             this.addEmployeeRequestButton.TabIndex = 4;
             this.addEmployeeRequestButton.Text = "Додати";
             this.addEmployeeRequestButton.UseVisualStyleBackColor = true;
+            this.addEmployeeRequestButton.Click += new System.EventHandler(this.addEmployeeRequestButton_Click);
             // 
             // searchEmployeeButton
             // 
@@ -405,6 +413,7 @@
             this.searchEmployeeButton.TabIndex = 3;
             this.searchEmployeeButton.Text = "Пошук";
             this.searchEmployeeButton.UseVisualStyleBackColor = true;
+            this.searchEmployeeButton.Click += new System.EventHandler(this.searchEmployeeButton_Click);
             // 
             // searchEmployeeValue
             // 
@@ -435,6 +444,7 @@
             this.hiredataColumn});
             this.EmployeeDataGrid.Location = new System.Drawing.Point(7, 20);
             this.EmployeeDataGrid.Name = "EmployeeDataGrid";
+            this.EmployeeDataGrid.ReadOnly = true;
             this.EmployeeDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.EmployeeDataGrid.Size = new System.Drawing.Size(606, 332);
             this.EmployeeDataGrid.TabIndex = 0;
@@ -445,6 +455,7 @@
             this.Id.FillWeight = 50F;
             this.Id.HeaderText = "ID";
             this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             this.Id.Width = 50;
             // 
             // pibColumn
@@ -453,6 +464,7 @@
             this.pibColumn.FillWeight = 140F;
             this.pibColumn.HeaderText = "П. І. Б.";
             this.pibColumn.Name = "pibColumn";
+            this.pibColumn.ReadOnly = true;
             // 
             // departmentColumn
             // 
@@ -460,6 +472,7 @@
             this.departmentColumn.FillWeight = 70F;
             this.departmentColumn.HeaderText = "Відділення";
             this.departmentColumn.Name = "departmentColumn";
+            this.departmentColumn.ReadOnly = true;
             // 
             // postColumn
             // 
@@ -467,17 +480,20 @@
             this.postColumn.FillWeight = 70F;
             this.postColumn.HeaderText = "Посада";
             this.postColumn.Name = "postColumn";
+            this.postColumn.ReadOnly = true;
             // 
             // contractTypeColumn
             // 
             this.contractTypeColumn.FillWeight = 70F;
             this.contractTypeColumn.HeaderText = "Вид договору";
             this.contractTypeColumn.Name = "contractTypeColumn";
+            this.contractTypeColumn.ReadOnly = true;
             // 
             // hiredataColumn
             // 
             this.hiredataColumn.HeaderText = "Дата створення договору";
             this.hiredataColumn.Name = "hiredataColumn";
+            this.hiredataColumn.ReadOnly = true;
             // 
             // groupBox4
             // 
@@ -616,6 +632,7 @@
             this.dataGridViewTextBoxColumn5});
             this.StatusDataGrid.Location = new System.Drawing.Point(7, 20);
             this.StatusDataGrid.Name = "StatusDataGrid";
+            this.StatusDataGrid.ReadOnly = true;
             this.StatusDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.StatusDataGrid.Size = new System.Drawing.Size(606, 332);
             this.StatusDataGrid.TabIndex = 0;
@@ -625,6 +642,7 @@
             this.databaseIDColumn.FillWeight = 50F;
             this.databaseIDColumn.HeaderText = "ID";
             this.databaseIDColumn.Name = "databaseIDColumn";
+            this.databaseIDColumn.ReadOnly = true;
             this.databaseIDColumn.Width = 50;
             // 
             // dataGridViewTextBoxColumn1
@@ -633,23 +651,27 @@
             this.dataGridViewTextBoxColumn1.FillWeight = 140F;
             this.dataGridViewTextBoxColumn1.HeaderText = "П. І. Б.";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn2.HeaderText = "Відділення";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn3.HeaderText = "Посада";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.HeaderText = "Статус";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // groupBox7
             // 
@@ -959,7 +981,7 @@
         private System.Windows.Forms.ComboBox searchPersonParametrs;
         private System.Windows.Forms.Button addSearchRequestButton;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.TextBox searchValue;
+        private System.Windows.Forms.TextBox searchPersonValue;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox employeeRequestList;
